@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YSHOP | Collection</title>
+    <meta name="description" content="تسوق أفضل المنتجات مع YSHOP">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <div id="particles-container"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="YSHOP Logo" class="brand-logo" onerror="this.src='https://placehold.co/200x80/ffffff/598E35?text=YSHOP16'">
+            </div>
+            <div class="header-actions">
+                <button class="cart-btn" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="collection-header">
+            <h1>جميع المنتجات</h1>
+            <div class="filter-sort">
+                <button class="filter-btn active">الكل</button>
+                <button class="filter-btn">تخفيضات</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid">
+            <!-- Product 1 -->
+            <div class="product-card" data-title="كادر أنيق + دعاء مبارك 🤍">
+                <div class="product-image-container">
+                    <img src="https://4oey1j8tyx.ufs.sh/f/rbKe0tEW4UNk1tZTf1Sb59GdmnRxC7Pz1IVHEkr2iOSa46B0" alt="كادر أنيق + دعاء مبارك 🤍" class="product-image">
+                    <span class="badge sale">تخفيض</span>
+                    <button class="quick-add" onclick="openModal('كادر أنيق + دعاء مبارك 🤍')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-title-area">
+                        <h3 class="product-title">كادر أنيق + دعاء مبارك 🤍</h3>
+                        <p class="product-desc">يزيد جمال منزلك ويعطيك طابع هادئ و روحاني ✨️</p>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-price">
+                            <span class="current-price">3200 دج</span>
+                            <span class="old-price">4800 دج</span>
+                        </div>
+                        <button class="order-btn" onclick="openModal('كادر أنيق + دعاء مبارك 🤍')">اطلب الآن</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-title="لوحة الرسم والكتابة المضيئة LED DRAWING TABLET">
+                <div class="product-image-container">
+                    <img src="https://4oey1j8tyx.ufs.sh/f/rbKe0tEW4UNkg9BElju3mPxaJV1QyZeKYFEiwBpXTcSdAD4H" alt="لوحة الرسم والكتابة المضيئة LED" class="product-image">
+                    <span class="badge sale">تخفيض</span>
+                    <button class="quick-add" onclick="openModal('لوحة الرسم والكتابة المضيئة LED DRAWING TABLET')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-title-area">
+                        <h3 class="product-title">لوحة الرسم والكتابة المضيئة LED DRAWING TABLET</h3>
+                        <p class="product-desc">لوحة ذكية تجمع بين التسلية والتعليم في نفس الوقت!</p>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-price">
+                            <span class="current-price">2000 دج</span>
+                            <span class="old-price">2500 دج</span>
+                        </div>
+                        <button class="order-btn" onclick="openModal('لوحة الرسم والكتابة المضيئة LED DRAWING TABLET')">اطلب الآن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <img src="assets/logo.png" alt="YSHOP Logo" class="footer-logo" onerror="this.style.display='none'">
+            <p>© 2026 YSHOP16 — جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>تأكيد الطلب</h2>
+                <p>الرجاء ملء الاستمارة لإتمام طلبك</p>
+            </div>
+            
+            <form id="orderForm" action="https://formspree.io/f/mwvwdgpk" method="POST">
+                
+                <!-- Display Product -->
+                <div class="order-summary-header">
+                    <h4 id="displayProductName"></h4>
+                    <input type="hidden" id="productName" name="Product Name">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label for="fullName">الاسم الكامل <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="Full Name" required placeholder="أدخل اسمك ولقبك">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="phone">رقم الهاتف <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="Phone Number" required placeholder="0555XX.. / 0666XX.." dir="ltr" style="text-align: right;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wilaya">الولاية <span class="required">*</span></label>
+                    <select id="wilaya" name="Wilaya" required>
+                        <option value="" disabled selected>اختر الولاية</option>
+                        <!-- Options generated via JS to save space -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">العنوان الكامل <span class="required">*</span></label>
+                    <input type="text" id="address" name="Address" required placeholder="البلدية، الحي...">
+                </div>
+
+                <div class="form-group">
+                    <label>طريقة التوصيل <span class="required">*</span></label>
+                    <div class="delivery-options">
+                        <label class="delivery-option" for="homeDelivery">
+                            <input type="radio" id="homeDelivery" name="Delivery Type" value="توصيل للمنزل - 800 دج" required checked>
+                            <span class="delivery-info">
+                                <span class="delivery-title"><i class="fas fa-home"></i> توصيل للمنزل</span>
+                                <span class="delivery-price">800 دج</span>
+                            </span>
+                        </label>
+                        <label class="delivery-option" for="deskDelivery">
+                            <input type="radio" id="deskDelivery" name="Delivery Type" value="توصيل للمكتب - 600 دج">
+                            <span class="delivery-info">
+                                <span class="delivery-title"><i class="fas fa-box"></i> توصيل للمكتب (Point Relais)</span>
+                                <span class="delivery-price">600 دج</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">الكمية</label>
+                    <div class="qty-control">
+                        <button type="button" class="qty-btn" onclick="document.getElementById('quantity').stepDown()">-</button>
+                        <input type="number" id="quantity" name="Quantity" value="1" min="1" required>
+                        <button type="button" class="qty-btn" onclick="document.getElementById('quantity').stepUp()">+</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">تأكيد الطلب 🛒</span>
+                    <span class="loader" style="display: none;"><i class="fas fa-spinner fa-spin"></i></span>
+                </button>
+
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
